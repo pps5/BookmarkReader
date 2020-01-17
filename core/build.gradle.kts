@@ -26,5 +26,7 @@ configurations {
 
 dependencies {
     api(Dep.Kotlin.stdLib)
+    api(Dep.AndroidX.Navigation.fragment)
+    api(Dep.AndroidX.Navigation.ui)
     testImplementation(Dep.Test.jUnit)
 }
