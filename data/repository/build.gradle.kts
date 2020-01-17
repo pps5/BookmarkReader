@@ -11,23 +11,17 @@ android {
     compileSdkVersion(Versions.compileSdkVersion)
 
     defaultConfig {
+
         minSdkVersion(Versions.minSdkVersion)
         targetSdkVersion(Versions.targetSdkVersion)
         versionCode = Versions.versionCode
         versionName = Versions.versionName
 
         consumerProguardFiles("consumer-rules.pro")
+
     }
 }
 
-configurations {
-    create("testDependencies").extendsFrom(testImplementation.get())
-}
-
 dependencies {
-    api(Dep.Kotlin.stdLib)
-    api(Dep.Kotlin.coroutines)
-    api(Dep.AndroidX.Navigation.fragment)
-    api(Dep.AndroidX.Navigation.ui)
-    testImplementation(Dep.Test.jUnit)
+    testImplementation(project(path = ":core", configuration = "testDependencies"))
 }
