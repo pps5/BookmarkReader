@@ -7,16 +7,19 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import io.github.pps5.bookmarkreader.App
+import io.github.pps5.bookmarkreader.data.DataModule
 import javax.inject.Singleton
 
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
-        AppModule::class
+        ActivityModule::class,
+        FragmentModule::class,
+        DataModule::class
     ]
 )
 @Singleton
-interface AppComponent: AndroidInjector<App> {
+interface AppComponent : AndroidInjector<App> {
 
     @Component.Builder
     interface Builder {

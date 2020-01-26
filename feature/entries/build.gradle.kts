@@ -1,5 +1,5 @@
-import dependencies.Versions
 import dependencies.Dep
+import dependencies.Versions
 
 plugins {
     id("com.android.library")
@@ -36,7 +36,16 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":data:repository"))
 
+    implementation(Dep.AndroidX.constraintLayout)
+    implementation(Dep.AndroidX.viewModel)
+
     implementation(Dep.Dagger.core)
+    implementation(Dep.Dagger.support)
+    kapt(Dep.Dagger.compiler)
+    kapt(Dep.Dagger.androidProcessor)
+
+    implementation(Dep.Groupie.core)
+    implementation(Dep.Groupie.dataBinding)
 
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }

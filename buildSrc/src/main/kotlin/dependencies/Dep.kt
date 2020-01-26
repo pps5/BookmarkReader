@@ -46,6 +46,13 @@ object Dep {
         const val processor = "com.tickaroo.tikxml:processor:$version"
     }
 
+    object Groupie {
+        private const val version = "2.7.0"
+        const val core = "com.xwray:groupie:$version"
+        const val extension = "com.xwray:groupie-kotlin-android-extensions:$version"
+        const val dataBinding = "com.xwray:groupie-databinding:$version"
+    }
+
     const val okHttp3 = "com.squareup.okhttp3:okhttp:4.3.1"
     const val retrofit = "com.squareup.retrofit2:retrofit:2.7.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
