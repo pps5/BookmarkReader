@@ -30,5 +30,6 @@ dependencies {
     api(Dep.Kotlin.coroutines)
     api(Dep.AndroidX.Navigation.fragment)
     api(Dep.AndroidX.Navigation.ui)
+    api(Dep.timber)
     testImplementation(Dep.Test.jUnit)
 }

@@ -48,6 +48,7 @@ object Dep {
 
     const val okHttp3 = "com.squareup.okhttp3:okhttp:4.3.1"
     const val retrofit = "com.squareup.retrofit2:retrofit:2.7.0"
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
 
     object Test {
         const val jUnit = "junit:junit:4.12"
