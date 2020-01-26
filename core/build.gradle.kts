@@ -25,6 +25,7 @@ configurations {
 }
 
 dependencies {
+    implementation(project(":entity"))
     api(Dep.Kotlin.stdLib)
     api(Dep.Kotlin.coroutines)
     api(Dep.AndroidX.Navigation.fragment)

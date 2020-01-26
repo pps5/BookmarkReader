@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hot_entry_url">https://b.hatena.ne.jp/hotentry/%1$s</string>
+
+    <string name="category_all">all.rss</string>
+</resources>

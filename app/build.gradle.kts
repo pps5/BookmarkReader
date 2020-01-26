@@ -4,7 +4,9 @@ import dependencies.Dep
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("kotlin-android-extensions")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -36,12 +38,31 @@ android {
             )
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
+
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":data"))
+    implementation(project(":data:api"))
+    implementation(project(":data:repository"))
+
+    implementation(project(path = ":data:api", configuration = "allDependencies"))
+
     implementation(Dep.AndroidX.core)
     implementation(Dep.AndroidX.appCompat)
     implementation(Dep.AndroidX.constraintLayout)
+    implementation(Dep.AndroidX.material)
 
-    testImplementation(project(path = ":common", configuration = "testDependencies"))
+    implementation(Dep.Dagger.core)
+    implementation(Dep.Dagger.android)
+    implementation(Dep.Dagger.support)
+    kapt(Dep.Dagger.compiler)
+    kapt(Dep.Dagger.androidProcessor)
+
+    testImplementation(project(path = ":core", configuration = "testDependencies"))
 }

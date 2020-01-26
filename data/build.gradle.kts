@@ -4,6 +4,7 @@ import dependencies.Dep
 plugins {
     id("com.android.library")
     kotlin("android")
+    kotlin("kapt")
     id("kotlin-android-extensions")
 }
 
@@ -23,9 +24,14 @@ android {
 }
 
 dependencies {
-    api(project(":core"))
+    implementation(project(":core"))
+    implementation(project(":entity"))
     implementation(project(":data:api"))
     implementation(project(":data:db"))
     implementation(project(":data:repository"))
+
+    implementation(Dep.Dagger.core)
+    kapt(Dep.Dagger.compiler)
+
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }
