@@ -47,11 +47,13 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":feature:entries"))
     implementation(project(":data"))
     implementation(project(":data:api"))
     implementation(project(":data:repository"))
 
     implementation(project(path = ":data:api", configuration = "allDependencies"))
+    implementation(project(path = ":feature:entries", configuration = "allDependencies"))
 
     implementation(Dep.AndroidX.core)
     implementation(Dep.AndroidX.appCompat)

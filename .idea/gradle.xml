@@ -19,6 +19,8 @@
             <option value="$PROJECT_DIR$/data/db" />
             <option value="$PROJECT_DIR$/data/repository" />
             <option value="$PROJECT_DIR$/entity" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/entries" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
