@@ -16,13 +16,11 @@ class EntryRepository @Inject constructor(
     override suspend fun getHotEntries(
         category: Category
     ): Result<List<Entry>> {
-        runCatching {
-            feedClient.getHotEntries(category.toFeedCategory())
-        }
-            .onSuccess { return Result.Ok(it.toEntryList()) }
-            .onFailure { return Result.Error() }
-        // dummy return
-        return Result.Error()
+        return runCatching { feedClient.getHotEntries(category.toFeedCategory()) }
+            .fold(
+                onSuccess = { Result.Ok(it.toEntryList()) },
+                onFailure = { Result.Error(it) }
+            )
     }
 
 }

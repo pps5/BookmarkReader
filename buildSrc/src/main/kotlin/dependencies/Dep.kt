@@ -20,6 +20,9 @@ object Dep {
         const val appCompat = "androidx.appcompat:appcompat:1.1.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
         const val material = "com.google.android.material:material:1.1.0-rc01"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+        const val liveData = "androidx.lifecycle:lifecycle-livedata:2.2.0"
+        const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
         object Navigation {
             const val version = "2.1.0"
