@@ -24,14 +24,14 @@ class EntryRepository @Inject constructor(
     ): Result<out List<IEntry>> = withContext(Dispatchers.IO) {
         val dao = appDatabase.entryDao()
         runCatching {
-            // TODO: 20/02/01 do not use ordinal
-            val dbResult = dao.getHotEntries(category.ordinal)
+            val feedCategory = category.toFeedCategory()
+            val dbResult = dao.getHotEntries(feedCategory.id)
             if (dbResult == null || shouldFetch(dbResult.hotEntry.lastUpdatedTime)) {
                 val entries = feedClient
-                    .getHotEntries(category.toFeedCategory())
+                    .getHotEntries(feedCategory)
                     .items
                 dao.insertHotEntry(
-                    category.ordinal,
+                    feedCategory.id,
                     entries
                 )
                 entries
