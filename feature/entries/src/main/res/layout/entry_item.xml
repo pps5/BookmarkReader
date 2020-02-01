@@ -6,7 +6,7 @@
 
         <variable
             name="entry"
-            type="io.github.pps5.bookmarkreader.entity.Entry" />
+            type="io.github.pps5.bookmarkreader.entity.IEntry" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

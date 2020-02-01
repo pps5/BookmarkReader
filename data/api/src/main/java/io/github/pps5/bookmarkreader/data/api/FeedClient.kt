@@ -3,7 +3,7 @@ package io.github.pps5.bookmarkreader.data.api
 import io.github.pps5.bookmarkreader.core.Result
 import io.github.pps5.bookmarkreader.data.api.entity.FeedCategory
 import io.github.pps5.bookmarkreader.data.api.entity.Entries
-import io.github.pps5.bookmarkreader.entity.Entry
+import io.github.pps5.bookmarkreader.entity.IEntry
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -17,5 +17,5 @@ interface FeedClient {
     @GET("entrylist/{category}.rss")
     fun getNewEntries(
         @Path("category") category: FeedCategory
-    ): Result<List<Entry>>
+    ): Result<List<IEntry>>
 }
