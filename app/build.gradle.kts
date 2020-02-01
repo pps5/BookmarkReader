@@ -53,9 +53,11 @@ dependencies {
     implementation(project(":feature:entries"))
     implementation(project(":data"))
     implementation(project(":data:api"))
+    implementation(project(":data:db"))
     implementation(project(":data:repository"))
 
     implementation(project(path = ":data:api", configuration = "allDependencies"))
+    implementation(project(path = ":data:db", configuration = "allDependencies"))
     implementation(project(path = ":feature:entries", configuration = "allDependencies"))
 
     implementation(Dep.AndroidX.core)

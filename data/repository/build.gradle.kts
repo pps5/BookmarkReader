@@ -27,9 +27,12 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":entity"))
     implementation(project(":data:api"))
+    implementation(project(":data:db"))
 
     implementation(Dep.Dagger.core)
     kapt(Dep.Dagger.compiler)
+
+    implementation(Dep.AndroidX.Room.runtime)
 
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }

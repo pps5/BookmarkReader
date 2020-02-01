@@ -31,5 +31,6 @@ dependencies {
     api(Dep.AndroidX.Navigation.fragment)
     api(Dep.AndroidX.Navigation.ui)
     api(Dep.timber)
+    api(Dep.threeTenAbp)
     testImplementation(Dep.Test.jUnit)
 }

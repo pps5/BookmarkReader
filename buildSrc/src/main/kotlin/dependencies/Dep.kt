@@ -29,6 +29,13 @@ object Dep {
             const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
             const val ui = "androidx.navigation:navigation-ui-ktx:$version"
         }
+
+        object Room {
+            private const val version = "2.2.0-rc01"
+            const val runtime = "androidx.room:room-runtime:$version"
+            const val compiler = "androidx.room:room-compiler:$version"
+            const val ktx = "androidx.room:room-ktx:$version"
+        }
     }
 
     object Dagger {
@@ -59,6 +66,7 @@ object Dep {
     const val okHttp3 = "com.squareup.okhttp3:okhttp:4.3.1"
     const val retrofit = "com.squareup.retrofit2:retrofit:2.7.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
+    const val threeTenAbp = "com.jakewharton.threetenabp:threetenabp:1.2.2"
 
     object Test {
         const val jUnit = "junit:junit:4.12"
