@@ -63,6 +63,12 @@ object Dep {
         const val dataBinding = "com.xwray:groupie-databinding:$version"
     }
 
+    object Glide {
+        private const val version = "4.11.0"
+        const val core = "com.github.bumptech.glide:glide:$version"
+        const val compiler = "com.github.bumptech.glide:compiler:$version"
+    }
+
     const val okHttp3 = "com.squareup.okhttp3:okhttp:4.3.1"
     const val retrofit = "com.squareup.retrofit2:retrofit:2.7.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"

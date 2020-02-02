@@ -32,5 +32,6 @@ dependencies {
     api(Dep.AndroidX.Navigation.ui)
     api(Dep.timber)
     api(Dep.threeTenAbp)
+    implementation(Dep.Dagger.core)
     testImplementation(Dep.Test.jUnit)
 }

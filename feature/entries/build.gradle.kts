@@ -49,5 +49,8 @@ dependencies {
     implementation(Dep.Groupie.core)
     implementation(Dep.Groupie.dataBinding)
 
+    implementation(Dep.Glide.core)
+    kapt(Dep.Glide.compiler)
+
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }
