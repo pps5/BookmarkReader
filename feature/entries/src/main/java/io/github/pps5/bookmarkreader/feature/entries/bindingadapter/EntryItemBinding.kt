@@ -17,7 +17,7 @@ fun TextView.setBookmarkCount(count: Int) {
 @BindingAdapter("app:thumbnail")
 fun ImageView.setThumbnail(url: String?) {
     url?.let {
-        Glide.with(this)
+        GlideApp.with(this)
             .load(url)
             .centerCrop()
             .into(this)
