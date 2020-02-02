@@ -1,4 +1,4 @@
-package io.github.pps5.bookmarkreader.feature.entries
+package io.github.pps5.bookmarkreader.feature.entries.di
 
 import androidx.lifecycle.ViewModelProvider
 import dagger.Module
@@ -6,6 +6,7 @@ import dagger.Provides
 import io.github.pps5.bookmarkreader.core.di.scope.FragmentScope
 import io.github.pps5.bookmarkreader.core.repository.EntryRepository
 import io.github.pps5.bookmarkreader.core.util.create
+import io.github.pps5.bookmarkreader.feature.entries.EntriesViewModel
 
 @Module
 class EntriesModule {
@@ -15,6 +16,10 @@ class EntriesModule {
     fun provideViewModelFactory(
         entryRepository: EntryRepository
     ): ViewModelProvider.Factory =
-        create { EntriesViewModel(entryRepository) }
+        create {
+            EntriesViewModel(
+                entryRepository
+            )
+        }
 
 }
