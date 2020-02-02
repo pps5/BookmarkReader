@@ -3,9 +3,9 @@ package io.github.pps5.bookmarkreader.feature.entries.bindingadapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
+import io.github.pps5.bookmarkreader.feature.entries.GlideApp
 
-@BindingAdapter("app:bookmarkCount")
+@BindingAdapter("bookmarkCount")
 fun TextView.setBookmarkCount(count: Int) {
     val text = buildString {
         append(count)
@@ -14,7 +14,7 @@ fun TextView.setBookmarkCount(count: Int) {
     setText(text)
 }
 
-@BindingAdapter("app:thumbnail")
+@BindingAdapter("thumbnail")
 fun ImageView.setThumbnail(url: String?) {
     url?.let {
         GlideApp.with(this)
