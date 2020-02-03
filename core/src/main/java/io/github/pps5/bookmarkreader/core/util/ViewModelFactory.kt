@@ -8,6 +8,7 @@ inline fun <reified V : ViewModel?> create(
     crossinline block: () -> V
 ): ViewModelProvider.Factory {
     return object : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(V::class.java)) {
                 Timber.d("Create new ${V::class.java.simpleName}")

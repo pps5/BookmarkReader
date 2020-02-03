@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/webview_fragment"
-        android:name="io.github.pps5.bookmarkreader.feature.entries.WebViewFragment">
+        android:name="io.github.pps5.bookmarkreader.feature.entries.fragment.WebViewFragment">
         <argument
             android:name="url"
             app:argType="string" />

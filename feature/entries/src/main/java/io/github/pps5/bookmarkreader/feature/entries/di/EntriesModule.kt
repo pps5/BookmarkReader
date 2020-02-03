@@ -6,7 +6,7 @@ import dagger.Provides
 import io.github.pps5.bookmarkreader.core.di.scope.FragmentScope
 import io.github.pps5.bookmarkreader.core.repository.EntryRepository
 import io.github.pps5.bookmarkreader.core.util.create
-import io.github.pps5.bookmarkreader.feature.entries.EntriesViewModel
+import io.github.pps5.bookmarkreader.feature.entries.viewmodel.EntriesViewModel
 
 @Module
 class EntriesModule {

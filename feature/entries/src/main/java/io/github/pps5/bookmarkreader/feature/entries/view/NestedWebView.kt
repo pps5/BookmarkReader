@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat
  * WebView compatible with CoordinatorLayout by snachmsm
  * The implementation based on NestedScrollView of design library androidx v1.0.1
  */
+@Suppress("NAME_SHADOWING", "UNUSED_PARAMETER")
 class NestedWebView @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null,

@@ -1,4 +1,4 @@
-package io.github.pps5.bookmarkreader.feature.entries
+package io.github.pps5.bookmarkreader.feature.entries.view.item
 
 import com.xwray.groupie.databinding.BindableItem
 import io.github.pps5.bookmarkreader.entity.IEntry

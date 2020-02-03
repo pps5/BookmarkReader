@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.android.support.DaggerFragment
+import io.github.pps5.bookmarkreader.feature.entries.view.item.EntryItem
+import io.github.pps5.bookmarkreader.feature.entries.viewmodel.EntriesViewModel
 import io.github.pps5.feature.entries.databinding.FragmentEntriesBinding
 import javax.inject.Inject
 
@@ -43,7 +45,9 @@ class EntriesFragment : DaggerFragment() {
             viewLifecycleOwner,
             Observer<EntriesViewModel.Model> { model ->
                 adapter.update(model.entries.map {
-                    EntryItem(it) { e ->
+                    EntryItem(
+                        it
+                    ) { e ->
                         findNavController()
                             .navigate(EntriesFragmentDirections.actionToWebviewFragment(e.link))
                     }

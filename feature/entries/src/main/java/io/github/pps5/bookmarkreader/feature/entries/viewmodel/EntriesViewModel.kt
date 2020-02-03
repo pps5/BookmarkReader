@@ -1,4 +1,4 @@
-package io.github.pps5.bookmarkreader.feature.entries
+package io.github.pps5.bookmarkreader.feature.entries.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +17,7 @@ class EntriesViewModel(
 ) : ViewModel() {
 
     companion object {
-        private const val CACHE_MINUTE = 10L
+        private const val CACHE_MINUTE = 100L
     }
 
     data class Model(
@@ -26,11 +26,12 @@ class EntriesViewModel(
         val appError: Option<AppError>
     ) {
         companion object {
-            val EMPTY = Model(
-                isLoading = true,
-                entries = listOf(),
-                appError = Option.None()
-            )
+            val EMPTY =
+                Model(
+                    isLoading = true,
+                    entries = listOf(),
+                    appError = Option.None()
+                )
         }
     }
 

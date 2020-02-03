@@ -1,4 +1,4 @@
-package io.github.pps5.bookmarkreader.feature.entries
+package io.github.pps5.bookmarkreader.feature.entries.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
