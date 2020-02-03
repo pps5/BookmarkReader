@@ -22,6 +22,10 @@ android {
 
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildFeatures {
         dataBinding = true
     }
@@ -40,6 +44,7 @@ dependencies {
     implementation(Dep.AndroidX.viewModel)
     implementation(Dep.AndroidX.liveData)
     implementation(Dep.AndroidX.liveDataKtx)
+    implementation(Dep.AndroidX.material)
 
     implementation(Dep.Dagger.core)
     implementation(Dep.Dagger.support)

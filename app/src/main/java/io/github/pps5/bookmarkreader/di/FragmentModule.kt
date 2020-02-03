@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import io.github.pps5.bookmarkreader.core.di.scope.FragmentScope
 import io.github.pps5.bookmarkreader.feature.entries.EntriesFragment
-import io.github.pps5.bookmarkreader.feature.entries.EntriesModule
+import io.github.pps5.bookmarkreader.feature.entries.di.EntriesModule
 
 @Module
 abstract class FragmentModule {

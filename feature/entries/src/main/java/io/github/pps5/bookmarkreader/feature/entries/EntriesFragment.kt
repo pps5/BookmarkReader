@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -41,7 +42,12 @@ class EntriesFragment : DaggerFragment() {
         viewModel.model.observe(
             viewLifecycleOwner,
             Observer<EntriesViewModel.Model> { model ->
-                adapter.update(model.entries.map { EntryItem(it) })
+                adapter.update(model.entries.map {
+                    EntryItem(it) { e ->
+                        findNavController()
+                            .navigate(EntriesFragmentDirections.actionToWebviewFragment(e.link))
+                    }
+                })
             }
         )
     }
