@@ -50,7 +50,7 @@ class WebViewFragment : Fragment() {
                 if (shouldHandleBack) {
                     binding.webview.goBack()
                 }
-                isEnabled = !shouldHandleBack
+                isEnabled = shouldHandleBack
             }
     }
 
