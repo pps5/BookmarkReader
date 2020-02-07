@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bookmark">Bookmark</string>
+    <string name="comments">Comments</string>
+    <string name="share">Share</string>
+
+    <string name="share_text">%1$s - %2$s</string>
+</resources>

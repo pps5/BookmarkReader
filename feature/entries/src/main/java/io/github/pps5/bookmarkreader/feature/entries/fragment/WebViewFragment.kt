@@ -1,6 +1,7 @@
 package io.github.pps5.bookmarkreader.feature.entries.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import io.github.pps5.feature.entries.R
 import io.github.pps5.feature.entries.databinding.FragmentWebviewBinding
 
 class WebViewFragment : Fragment() {
@@ -40,6 +42,18 @@ class WebViewFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.appbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.share -> handleOnShareItemSelected()
+                R.id.bookmark -> {
+                    // TODO: 20/02/07 open bookmark page 
+                }
+                R.id.comments -> {
+                    // TODO: 20/02/07 open comments sheet 
+                }
+            }
+            return@setOnMenuItemClickListener true
+        }
         onBackPressedCallback = requireActivity().onBackPressedDispatcher
             .addCallback(this, false) {
                 binding.webview.goBack()
@@ -52,6 +66,20 @@ class WebViewFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         onBackPressedCallback.remove()
+    }
+
+    private fun handleOnShareItemSelected() {
+        val (title, url) = with(binding.webview) { title to url }
+        val intent = Intent()
+            .apply {
+                action = Intent.ACTION_SEND
+                type = "text/plain"
+                putExtra(
+                    Intent.EXTRA_TEXT,
+                    getString(R.string.share_text, title, url)
+                )
+            }
+        startActivity(intent)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
