@@ -1,5 +1,5 @@
-import dependencies.Versions
 import dependencies.Dep
+import dependencies.Versions
 
 plugins {
     id("com.android.application")
@@ -68,6 +68,12 @@ dependencies {
     implementation(Dep.Dagger.support)
     kapt(Dep.Dagger.compiler)
     kapt(Dep.Dagger.androidProcessor)
+
+    debugImplementation(Dep.Hyperion.core)
+    debugImplementation(Dep.Hyperion.measurement)
+    debugImplementation(Dep.Hyperion.attr)
+    debugImplementation(Dep.Hyperion.timber)
+    debugImplementation(Dep.Hyperion.crash)
 
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }

@@ -69,6 +69,15 @@ object Dep {
         const val compiler = "com.github.bumptech.glide:compiler:$version"
     }
 
+    object Hyperion {
+        private const val version = "0.9.27"
+        const val core = "com.willowtreeapps.hyperion:hyperion-core:$version"
+        const val attr = "com.willowtreeapps.hyperion:hyperion-attr:$version"
+        const val measurement = "com.willowtreeapps.hyperion:hyperion-measurement:$version"
+        const val timber = "com.willowtreeapps.hyperion:hyperion-timber:$version"
+        const val crash = "com.willowtreeapps.hyperion:hyperion-crash:$version"
+    }
+
     const val okHttp3 = "com.squareup.okhttp3:okhttp:4.3.1"
     const val retrofit = "com.squareup.retrofit2:retrofit:2.7.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
