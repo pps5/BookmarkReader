@@ -34,6 +34,9 @@ class EntryRepository @Inject constructor(
                     feedCategory.id,
                     entries
                 )
+                if (dbResult != null) {
+                    dao.deleteEntries(dbResult.entries)
+                }
                 entries
             } else {
                 dbResult.entries

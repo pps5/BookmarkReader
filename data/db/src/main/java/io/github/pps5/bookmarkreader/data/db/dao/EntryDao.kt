@@ -44,6 +44,8 @@ abstract class EntryDao {
         return _insertEntries(entriesToInsert)
     }
 
+    @Delete
+    abstract fun deleteEntries(entries: List<DBEntry>)
 
     @Suppress("FunctionName")
     @Insert
