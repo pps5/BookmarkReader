@@ -9,6 +9,7 @@ import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -18,12 +19,13 @@ class WebViewFragment : Fragment() {
 
     private lateinit var binding: FragmentWebviewBinding
     private val args: WebViewFragmentArgs by navArgs()
-
+    private lateinit var onBackPressedCallback: OnBackPressedCallback
     private val webViewClient = object : WebViewClient() {
         override fun shouldOverrideUrlLoading(
             view: WebView?,
             request: WebResourceRequest?
         ): Boolean {
+            onBackPressedCallback.isEnabled = true
             return false
         }
     }
@@ -38,20 +40,13 @@ class WebViewFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        onBackPressedCallback = requireActivity().onBackPressedDispatcher
+            .addCallback(this, false) {
+                binding.webview.goBack()
+                isEnabled = binding.webview.canGoBack()
+            }
         setupWebView()
         binding.webview.loadUrl(args.url)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        requireActivity().onBackPressedDispatcher
-            .addCallback(this, true) {
-                val shouldHandleBack = binding.webview.canGoBack()
-                if (shouldHandleBack) {
-                    binding.webview.goBack()
-                }
-                isEnabled = shouldHandleBack
-            }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
