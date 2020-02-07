@@ -74,6 +74,7 @@ dependencies {
     debugImplementation(Dep.Hyperion.attr)
     debugImplementation(Dep.Hyperion.timber)
     debugImplementation(Dep.Hyperion.crash)
+    debugImplementation(Dep.leakCanary)
 
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }
