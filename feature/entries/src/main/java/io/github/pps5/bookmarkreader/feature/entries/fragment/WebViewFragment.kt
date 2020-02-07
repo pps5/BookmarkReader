@@ -49,6 +49,11 @@ class WebViewFragment : Fragment() {
         binding.webview.loadUrl(args.url)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        onBackPressedCallback.remove()
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView() {
         binding.webview
