@@ -10,6 +10,10 @@
         android:name="io.github.pps5.bookmarkreader.feature.entries.EntriesFragment">
 
         <action
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"
             android:id="@+id/action_to_webview_fragment"
             app:destination="@id/webview_fragment" />
 
@@ -18,6 +22,7 @@
     <fragment
         android:id="@+id/webview_fragment"
         android:name="io.github.pps5.bookmarkreader.feature.entries.fragment.WebViewFragment">
+
         <argument
             android:name="url"
             app:argType="string" />
