@@ -3,9 +3,7 @@ package io.github.pps5.bookmarkreader.feature.entries.fragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -17,7 +15,7 @@ import androidx.fragment.app.Fragment
 import io.github.pps5.feature.entries.R
 import io.github.pps5.feature.entries.databinding.FragmentWebviewBinding
 
-class WebViewFragment : Fragment() {
+class WebViewFragment : Fragment(R.layout.fragment_webview) {
 
     companion object {
         private const val ARG_URL = "url"
@@ -38,16 +36,8 @@ class WebViewFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentWebviewBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding = FragmentWebviewBinding.bind(view)
         binding.appbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.share -> handleOnShareItemSelected()
