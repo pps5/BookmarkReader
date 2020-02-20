@@ -1,3 +1,4 @@
+include ':feature:home'
 include ':feature:entries'
 include ':entity'
 include ':data:repository'

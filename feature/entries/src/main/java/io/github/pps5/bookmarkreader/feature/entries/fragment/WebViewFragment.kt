@@ -12,15 +12,21 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import io.github.pps5.feature.entries.R
 import io.github.pps5.feature.entries.databinding.FragmentWebviewBinding
 
 class WebViewFragment : Fragment() {
 
+    companion object {
+        private const val ARG_URL = "url"
+        fun newInstance(url: String) =
+            WebViewFragment()
+                .apply { arguments = bundleOf(ARG_URL to url) }
+    }
+
     private lateinit var binding: FragmentWebviewBinding
-    private val args: WebViewFragmentArgs by navArgs()
     private lateinit var onBackPressedCallback: OnBackPressedCallback
     private val webViewClient = object : WebViewClient() {
         override fun shouldOverrideUrlLoading(
@@ -60,7 +66,7 @@ class WebViewFragment : Fragment() {
                 isEnabled = binding.webview.canGoBack()
             }
         setupWebView()
-        binding.webview.loadUrl(args.url)
+        binding.webview.loadUrl(requireArguments().getString(ARG_URL))
     }
 
     override fun onDestroyView() {

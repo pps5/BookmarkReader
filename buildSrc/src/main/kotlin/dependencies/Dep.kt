@@ -6,8 +6,6 @@ object Dep {
     object GradlePlugin {
         const val android = "com.android.tools.build:gradle:4.0.0-alpha08"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-        const val safeArgs =
-            "androidx.navigation:navigation-safe-args-gradle-plugin:${AndroidX.Navigation.version}"
     }
 
     object Kotlin {
@@ -23,12 +21,7 @@ object Dep {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
         const val liveData = "androidx.lifecycle:lifecycle-livedata:2.2.0"
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-
-        object Navigation {
-            const val version = "2.1.0"
-            const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
-            const val ui = "androidx.navigation:navigation-ui-ktx:$version"
-        }
+        const val fragment = "androidx.fragment:fragment-ktx:1.1.0"
 
         object Room {
             private const val version = "2.2.0-rc01"

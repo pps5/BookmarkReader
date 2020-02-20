@@ -5,7 +5,6 @@ plugins {
     id("com.android.library")
     kotlin("android")
     id("kotlin-android-extensions")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -29,10 +28,9 @@ dependencies {
     implementation(project(":entity"))
     api(Dep.Kotlin.stdLib)
     api(Dep.Kotlin.coroutines)
-    api(Dep.AndroidX.Navigation.fragment)
-    api(Dep.AndroidX.Navigation.ui)
     api(Dep.timber)
     api(Dep.threeTenAbp)
+    implementation(Dep.AndroidX.viewModel)
     implementation(Dep.Dagger.core)
     testImplementation(Dep.Test.jUnit)
 }

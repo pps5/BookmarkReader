@@ -39,25 +39,18 @@ dependencies {
     implementation(project(":entity"))
     implementation(project(":core"))
     implementation(project(":data:repository"))
+    implementation(project(":feature:entries"))
 
-    implementation(Dep.AndroidX.core)
     implementation(Dep.AndroidX.constraintLayout)
     implementation(Dep.AndroidX.viewModel)
     implementation(Dep.AndroidX.liveData)
     implementation(Dep.AndroidX.liveDataKtx)
     implementation(Dep.AndroidX.material)
-    implementation(Dep.AndroidX.fragment)
 
     implementation(Dep.Dagger.core)
     implementation(Dep.Dagger.support)
     kapt(Dep.Dagger.compiler)
     kapt(Dep.Dagger.androidProcessor)
-
-    implementation(Dep.Groupie.core)
-    implementation(Dep.Groupie.dataBinding)
-
-    implementation(Dep.Glide.core)
-    kapt(Dep.Glide.compiler)
 
     testImplementation(project(path = ":core", configuration = "testDependencies"))
 }

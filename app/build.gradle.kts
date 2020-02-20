@@ -48,6 +48,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":feature:home"))
     implementation(project(":feature:entries"))
     implementation(project(":data"))
     implementation(project(":data:api"))
@@ -56,6 +57,7 @@ dependencies {
 
     implementation(project(path = ":data:api", configuration = "allDependencies"))
     implementation(project(path = ":data:db", configuration = "allDependencies"))
+    implementation(project(path = ":feature:home", configuration = "allDependencies"))
     implementation(project(path = ":feature:entries", configuration = "allDependencies"))
 
     implementation(Dep.AndroidX.core)
