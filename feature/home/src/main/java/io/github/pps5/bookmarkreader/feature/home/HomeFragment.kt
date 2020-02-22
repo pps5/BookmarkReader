@@ -13,4 +13,5 @@ class HomeFragment : DaggerFragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         homeNavigator.navigateToHotEntriesFragment()
     }
+
 }

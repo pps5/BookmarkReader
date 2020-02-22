@@ -22,6 +22,7 @@ object Dep {
         const val liveData = "androidx.lifecycle:lifecycle-livedata:2.2.0"
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
         const val fragment = "androidx.fragment:fragment-ktx:1.1.0"
+        const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
 
         object Room {
             private const val version = "2.2.0-rc01"

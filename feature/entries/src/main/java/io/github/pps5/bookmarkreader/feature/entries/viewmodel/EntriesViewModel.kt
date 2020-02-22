@@ -1,11 +1,13 @@
 package io.github.pps5.bookmarkreader.feature.entries.viewmodel
 
+import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import io.github.pps5.bookmarkreader.core.Option
 import io.github.pps5.bookmarkreader.core.Result
 import io.github.pps5.bookmarkreader.core.repository.EntryRepository
+import io.github.pps5.bookmarkreader.core.util.mapLiveDataInViewModelScope
 import io.github.pps5.bookmarkreader.entity.AppError
 import io.github.pps5.bookmarkreader.entity.Category
 import io.github.pps5.bookmarkreader.entity.IEntry
@@ -26,22 +28,30 @@ class EntriesViewModel(
         val appError: Option<AppError>
     ) {
         companion object {
-            val EMPTY =
-                Model(
-                    isLoading = true,
-                    entries = listOf(),
-                    appError = Option.None()
-                )
+            val EMPTY = Model(
+                isLoading = true,
+                entries = listOf(),
+                appError = Option.None()
+            )
         }
     }
 
-    val model: LiveData<Model> = liveData {
-        emit(Model.EMPTY)
+    private val category = MutableLiveData<Category>()
+
+    @MainThread
+    fun setCategory(category: Category){
+       this.category.value = category
+    }
+
+    val model: LiveData<Model> = mapLiveDataInViewModelScope(
+        initialValue = Model.EMPTY,
+        trigger = category
+    ) { _: Model, category: Category ->
         val result = entryRepository.getHotEntries(
-            Category.ALL,
+            category,
             shouldFetch = { lastUpdated ->
-                ZonedDateTime.now()
-                    .isAfter(lastUpdated.plusMinutes(CACHE_MINUTE))
+                val cacheLimit = lastUpdated.plusMinutes(CACHE_MINUTE)
+                ZonedDateTime.now().isAfter(cacheLimit)
             }
         )
         val newModel = when (result) {
@@ -58,6 +68,6 @@ class EntriesViewModel(
                     appError = Option.apply(AppError(result.throwable))
                 )
         }
-        emit(newModel)
+        newModel
     }
 }

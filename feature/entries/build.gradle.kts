@@ -29,6 +29,11 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
+    androidExtensions {
+        isExperimental = true
+        features = setOf("parcelize")
+    }
 }
 
 configurations {
